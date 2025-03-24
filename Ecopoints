@@ -1,0 +1,66 @@
+# Eco-Points
+"EcoPoints adalah sistem penghargaan berbasis web yang mendorong pengguna untuk melakukan aksi ramah lingkungan. Kumpulkan poin dan tukarkan dengan hadiah menarik!"
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPoints - Peduli Lingkungan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EcoPoints - Peduli Lingkungan</h1>
+        <p>Kumpulkan poin dan tukarkan dengan hadiah menarik!</p>
+        <h2>Poin Anda: <span id="poin">0</span></h2>
+        <button onclick="tambahPoin()">Tambah Poin</button>
+        <button onclick="tukarHadiah()">Tukar Hadiah</button>
+        <p id="pesan"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e8f5e9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}let poin = 0;
+
+function tambahPoin() {
+    poin += 2;
+    document.getElementById("poin").innerText = poin;
+}
+
+function tukarHadiah() {
+    if (poin >= 100) {
+        document.getElementById("pesan").innerText = "Selamat! Anda telah menukar poin dengan hadiah 🎁";
+        poin -= 100; // Reset poin setelah tukar hadiah
+    } else {
+        document.getElementById("pesan").innerText = "Poin belum cukup untuk ditukar!";
+    }
+    document.getElementById("poin").innerText = poin;
+}
